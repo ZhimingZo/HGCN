@@ -71,7 +71,7 @@ To evaluate HGCN with ground truth as input, run:
 ```
 python main_gcn.py --evaluate checkpoint/pretrained/hgcn_gt_best.pth.tar --keypoints gt
 ```
-Note that the error is calculated in an **action-wise** manner.
+Note that the results will be reported in an **action-wise** manner.
 
 ### Training from scratch
 If you want to reproduce the results of our pretrained models, run the following commands.
