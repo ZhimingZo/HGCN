@@ -8,7 +8,7 @@ import torch.nn.functional as F
 
 class HGraphConv(nn.Module):
     """
-    Semantic graph convolution layer
+    High-order graph convolution layer
     """
 
     def __init__(self, in_features, out_features, adj, bias=True):
