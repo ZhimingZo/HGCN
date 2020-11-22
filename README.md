@@ -36,7 +36,7 @@ Results using Ground truth are reported.
 
 [2] Pavllo et al. [3D human pose estimation in video with temporal convolutions and semi-supervised training](https://arxiv.org/pdf/1811.11742.pdf). CVPR 2019.
 
-[3] Long Zhao et al. [Semantic Graph Convolutional Networks for 3D Human Pose Regression] (https://arxiv.org/pdf/1904.03345.pdf). CVPR 2019.
+[3] Long Zhao et al. [Semantic Graph Convolutional Networks for 3D Human Pose Regression](https://arxiv.org/pdf/1904.03345.pdf). CVPR 2019.
 
 ## Quick start
 
