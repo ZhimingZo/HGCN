@@ -95,4 +95,5 @@ This code is extended from the following repositories.
 - [3d_pose_baseline_pytorch](https://github.com/weigq/3d_pose_baseline_pytorch)
 - [VideoPose3D](https://github.com/facebookresearch/VideoPose3D)
 - [Semantic GCN](https://github.com/garyzhao/SemGCN)
+
 We thank to the authors for releasing their codes. Please also consider citing their works.
