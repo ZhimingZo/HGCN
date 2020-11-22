@@ -13,7 +13,7 @@ This repository holds the Pytorch implementation of [High-order Graph Convolutio
 
 ## Introduction
 
-The proposed High-order Graph Convolutional Network (HGCN) is a novel graph convolutional network architecture that operates on regression tasks with graph-structured data. We evaluate our model for 3D human pose estimation on the [Human3.6M Dataset](http://vision.imar.ro/human3.6m/).
+The proposed High-order Graph Convolutional Network (HGCN) is a graph convolutional network architecture that operates on regression tasks with graph-structured data. We evaluate our model for 3D human pose estimation on the [Human3.6M Dataset](http://vision.imar.ro/human3.6m/).
 
 In this repository, only 2D joints of the human pose is exploited as inputs. We utilize the method described in Pavllo et al. [2] to normalize 2D and 3D poses in the dataset. To be specific, 2D poses are scaled according to the image resolution and normalized to [-1, 1]; 3D poses are aligned with respect to the root joint . Please refer to the corresponding part in Pavllo et al. [2] for more details. For the 2D ground truth, we predict 16 joints (as the skeleton in Martinez et al. [1] and Zhao et al. [3] without the 'Neck/Nose' joint). For the 2D pose detections, the 'Neck/Nose' joint is reserved. 
 
