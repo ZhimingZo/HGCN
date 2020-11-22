@@ -50,7 +50,14 @@ pip install -r requirements.txt
 ```
 
 ### Dataset setup
-You can find the instructions for setting up the Human3.6M and results of 2D detections in [`data/README.md`](data/README.md). The code for data preparation is borrowed from [VideoPose3D](https://github.com/facebookresearch/VideoPose3D).
+CPN 2D detections for Human3.6 M datasets are provided by VideoPose3D by Pavllo et al. [2], which can be downloaded by:
+
+'''
+cd data
+wget https://dl.fbaipublicfiles.com/video-pose-3d/data_2d_h36m_cpn_ft_h36m_dbb.npz
+wget https://dl.fbaipublicfiles.com/video-pose-3d/data_2d_h36m_detectron_ft_h36m.npz
+cd ..
+'''
 
 ### Evaluating our pretrained models
 The pretrained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/13gBcCX6nQwzRN0jrhP5Fl7KwVa57-MCI?usp=sharing). Put `checkpoint` in the project root directory.
