@@ -74,7 +74,7 @@ def main(args):
     dataset_path = path.join('data', 'data_3d_' + args.dataset + '.npz')
     if args.dataset == 'h36m':
         from common.h36m_dataset import Human36mDataset, TRAIN_SUBJECTS, TEST_SUBJECTS
-        dataset = Human36mDataset(dataset_path)
+        dataset = Human36mDataset(dataset_path, args.keypoints)
         subjects_train = TRAIN_SUBJECTS
         subjects_test = TEST_SUBJECTS
     else:

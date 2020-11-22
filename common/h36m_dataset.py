@@ -229,7 +229,7 @@ h36m_cameras_extrinsic_params = {
 
 
 class Human36mDataset(MocapDataset):
-    def __init__(self, path, remove_static_joints=True):
+    def __init__(self, path, keypoints, remove_static_joints=True):
         super(Human36mDataset, self).__init__(skeleton=h36m_skeleton, fps=50)
 
         self._cameras = copy.deepcopy(h36m_cameras_extrinsic_params)
@@ -270,17 +270,28 @@ class Human36mDataset(MocapDataset):
         
         if remove_static_joints:
             # Bring the skeleton to 16 joints instead of the original 32
-            joints = []
-            for i, x in enumerate(H36M_NAMES):
-                if x == '': #or x == 'Neck/Nose':  # Remove 'Nose' to make SH and H36M 2D poses have the same dimension
-                    joints.append(i)
-            self.remove_joints(joints)
+            if keypoints == 'cpn_ft_h36m_dbb':
+                 joints = []
+                 for i, x in enumerate(H36M_NAMES):
+                      if x == '': #or x == 'Neck/Nose':  # Reserve 'Nose' for training with 2D detectors as input
+                             joints.append(i)
+                 self.remove_joints(joints)
             # Rewire shoulders to the correct parents
-            self._skeleton._parents[11] = 8
-            self._skeleton._parents[14] = 8
+                 self._skeleton._parents[11] = 8
+                 self._skeleton._parents[14] = 8
         
+            elif keypoints == 'gt':
+                 joints = []
+                 for i, x in enumerate(H36M_NAMES):
+                      if x == '' or x == 'Neck/Nose':  # Remove 'Nose' for training with gt as input
+                            joints.append(i)
+                 self.remove_joints(joints)
+            # Rewire shoulders to the correct parents
+                 self._skeleton._parents[10] = 8
+                 self._skeleton._parents[13] = 8
+
             # Set joints group
-        self._skeleton._joints_group = h36m_skeleton_joints_group
+            self._skeleton._joints_group = h36m_skeleton_joints_group
 
     def define_actions(self, action=None):
         all_actions = ["Directions",
