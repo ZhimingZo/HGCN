@@ -50,7 +50,7 @@ pip install -r requirements.txt
 ```
 
 ### Dataset setup
-CPN 2D detections for Human3.6 M datasets are provided by [VideoPose3D](https://github.com/facebookresearch/VideoPose3D) by Pavllo et al. [2], which can be downloaded by:
+CPN 2D detections for Human3.6M datasets are provided by [VideoPose3D](https://github.com/facebookresearch/VideoPose3D) Pavllo et al. [2], which can be downloaded by the following steps:
 
 ```
 cd data
@@ -58,6 +58,16 @@ wget https://dl.fbaipublicfiles.com/video-pose-3d/data_2d_h36m_cpn_ft_h36m_dbb.n
 wget https://dl.fbaipublicfiles.com/video-pose-3d/data_2d_h36m_detectron_ft_h36m.npz
 cd ..
 ```
+
+GT 2D keypoints for Human3.6M datasets are provided by [SemGCN](https://github.com/garyzhao/SemGCN) Zhao et al. [3], which can be downloaded by the following steps:
+```
+cd data
+pip install gdown
+gdown https://drive.google.com/uc?id=1Ac-gUXAg-6UiwThJVaw6yw2151Bot3L1
+python prepare_data_h36m.py --from-archive h36m.zip
+cd ..
+```
+After this step, you should end up with two files in the data directory: data_3d_h36m.npz for the 3D poses, and data_2d_h36m_gt.npz for the ground-truth 2D poses.
 
 ### Evaluating our pretrained models
 The pretrained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/13gBcCX6nQwzRN0jrhP5Fl7KwVa57-MCI?usp=sharing). Put `checkpoint` in the project root directory.
