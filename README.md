@@ -1,6 +1,6 @@
 # High-order Graph Convolutional Networks for 3D Human Pose Estimation (BMVC 2020)
 
-This repository holds the Pytorch implementation of [High-order Graph Convolutional Networks for 3D Human Pose Estimation](https://www.bmvc2020-conference.com/assets/papers/0550.pdf) by Zhiming Zou, Kenkun Liu, Le Wang and Wei Tang. If you find our code useful in your research, please consider citing:
+This repository holds the Pytorch implementation of [High-order Graph Convolutional Networks for 3D Human Pose Estimation](https://www.bmvc2020-conference.com/assets/papers/0550.pdf) by Zhiming Zou, Kenkun Liu, Le Wang, and Wei Tang. If you find our code useful in your research, please consider citing:
 
 ```
 @article{zouhigh,
@@ -15,7 +15,7 @@ This repository holds the Pytorch implementation of [High-order Graph Convolutio
 
 The proposed High-order Graph Convolutional Network (HGCN) is a graph convolutional network architecture that operates on regression tasks with graph-structured data. We evaluate our model for 3D human pose estimation on the [Human3.6M Dataset](http://vision.imar.ro/human3.6m/).
 
-In this repository, only 2D joints of the human pose is exploited as inputs. We utilize the method described in Pavllo et al. [2] to normalize 2D and 3D poses in the dataset. To be specific, 2D poses are scaled according to the image resolution and normalized to [-1, 1]; 3D poses are aligned with respect to the root joint . Please refer to the corresponding part in Pavllo et al. [2] for more details. For the 2D ground truth, we predict 16 joints (as the skeleton in Martinez et al. [1] and Zhao et al. [3] without the 'Neck/Nose' joint). For the 2D pose detections, the 'Neck/Nose' joint is reserved. 
+In this repository, only 2D joints of the human pose are exploited as inputs. We utilize the method described in Pavllo et al. [2] to normalize 2D and 3D poses in the dataset. To be specific, 2D poses are scaled according to the image resolution and normalized to [-1, 1]; 3D poses are aligned with respect to the root joint. Please refer to the corresponding part in Pavllo et al. [2] for more details. For the 2D ground truth, we predict 16 joints (as the skeleton in Martinez et al. [1] and Zhao et al. [3] without the 'Neck/Nose' joint). For the 2D pose detections, the 'Neck/Nose' joint is reserved. 
 
 ### Results on Human3.6M
 
@@ -31,9 +31,9 @@ Under Protocol 1 (mean per-joint position error) and Protocol 2 (mean per-joint 
 Results using Ground truth are reported. 
 The results are borrowed from [SemGCN](https://github.com/garyzhao/SemGCN).
 
-## Quick start
+## Quickstart
 
-This repository is build upon Python v3.7 and Pytorch v1.3.1 on Ubuntu 18.04. All experiments are conducted on a single NVIDIA RTX 2080 Ti GPU. See [`requirements.txt`](requirements.txt) for other dependencies. We recommend installing Python v3.7 from [Anaconda](https://www.anaconda.com/), and installing Pytorch (>= 1.3.1) following guide on the [official instructions](https://pytorch.org/) according to your specific CUDA version. Then you can install dependencies with the following commands.
+This repository is build upon Python v3.7 and Pytorch v1.3.1 on Ubuntu 18.04. All experiments are conducted on a single NVIDIA RTX 2080 Ti GPU. See [`requirements.txt`](requirements.txt) for other dependencies. We recommend installing Python v3.7 from [Anaconda](https://www.anaconda.com/) and installing Pytorch (>= 1.3.1) following guide on the [official instructions](https://pytorch.org/) according to your specific CUDA version. Then you can install dependencies with the following commands.
 
 ```
 git clone git@github.com:ZhimingZou/HGCN.git
@@ -61,8 +61,8 @@ cd ..
 ```
 After this step, you should end up with two files in the data directory: data_3d_h36m.npz for the 3D poses, and data_2d_h36m_gt.npz for the ground-truth 2D poses.
 
-### Evaluating our pretrained models
-The pretrained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/13gBcCX6nQwzRN0jrhP5Fl7KwVa57-MCI?usp=sharing). Put `checkpoint` in the project root directory.
+### Evaluating our pre-trained models
+The pre-trained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/13gBcCX6nQwzRN0jrhP5Fl7KwVa57-MCI?usp=sharing). Put `checkpoint` in the project root directory.
 
 To evaluate HGCN with CPN detectors as input, run:
 ```
@@ -82,8 +82,8 @@ For HGCN:
 python main_gcn.py --keypoints gt
 ```
 By default the application runs in training mode. This will train a new model for 50 epochs, using ground truth 2D detections.
- if you want to try different network settings. Please refer to [`main_gcn.py`](main_gcn.py) for more details. Note that the 
- default setting of hyper-parameters is used for training model with CPN detectors as input, please refer to the paper for implementation details.  
+If you want to try different network settings, please refer to [`main_gcn.py`](main_gcn.py) for more details. Note that the 
+default setting of hyper-parameters is used for training model with CPN detectors as input, please refer to the paper for implementation details.  
 
 For training and evaluating models using 2D detections generated by the Cascaded Pyramid Network, add `--keypoints cpn_ft_h36m_dbb` to the commands:
 ```
@@ -96,7 +96,7 @@ You can generate visualizations of the model predictions by running:
 ```
 python viz.py --architecture gcn --evaluate checkpoint/pretrained/hgcn_gt_best.pth.tar --viz_subject S11 --viz_action Walking --viz_camera 0 --viz_output output.gif --viz_size 3 --viz_downsample 2 --viz_limit 60
 ```
-The script can also export MP4 videos, and supports a variety of parameters (e.g. downsampling/FPS, size, bitrate). See [`viz.py`](viz.py) for more details.
+The script can also export MP4 videos and supports a variety of parameters (e.g. downsampling/FPS, size, bitrate). See [`viz.py`](viz.py) for more details.
 
 ### References
 
@@ -114,4 +114,4 @@ This code is extended from the following repositories.
 - [VideoPose3D](https://github.com/facebookresearch/VideoPose3D)
 - [Semantic GCN](https://github.com/garyzhao/SemGCN)
 
-We thank to the authors for releasing their codes. Please also consider citing their works.
+We thank the authors for releasing their codes. Please also consider citing their works.
