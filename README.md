@@ -31,14 +31,6 @@ Under Protocol 1 (mean per-joint position error) and Protocol 2 (mean per-joint 
 Results using Ground truth are reported. 
 The results are borrowed from [SemGCN](https://github.com/garyzhao/SemGCN).
 
-### References
-
-[1] Martinez et al. [A simple yet effective baseline for 3d human pose estimation](https://arxiv.org/pdf/1705.03098.pdf). ICCV 2017.
-
-[2] Pavllo et al. [3D human pose estimation in video with temporal convolutions and semi-supervised training](https://arxiv.org/pdf/1811.11742.pdf). CVPR 2019.
-
-[3] Zhao et al. [Semantic Graph Convolutional Networks for 3D Human Pose Regression](https://arxiv.org/pdf/1904.03345.pdf). CVPR 2019.
-
 ## Quick start
 
 This repository is build upon Python v3.7 and Pytorch v1.3.1 on Ubuntu 18.04. All experiments are conducted on a single NVIDIA RTX 2080 Ti GPU. See [`requirements.txt`](requirements.txt) for other dependencies. We recommend installing Python v3.7 from [Anaconda](https://www.anaconda.com/), and installing Pytorch (>= 1.3.1) following guide on the [official instructions](https://pytorch.org/) according to your specific CUDA version. Then you can install dependencies with the following commands.
@@ -105,6 +97,15 @@ You can generate visualizations of the model predictions by running:
 python viz.py --architecture gcn --evaluate checkpoint/pretrained/hgcn_gt_best.pth.tar --viz_subject S11 --viz_action Walking --viz_camera 0 --viz_output output.gif --viz_size 3 --viz_downsample 2 --viz_limit 60
 ```
 The script can also export MP4 videos, and supports a variety of parameters (e.g. downsampling/FPS, size, bitrate). See [`viz.py`](viz.py) for more details.
+
+### References
+
+[1] Martinez et al. [A simple yet effective baseline for 3d human pose estimation](https://arxiv.org/pdf/1705.03098.pdf). ICCV 2017.
+
+[2] Pavllo et al. [3D human pose estimation in video with temporal convolutions and semi-supervised training](https://arxiv.org/pdf/1811.11742.pdf). CVPR 2019.
+
+[3] Zhao et al. [Semantic Graph Convolutional Networks for 3D Human Pose Regression](https://arxiv.org/pdf/1904.03345.pdf). CVPR 2019.
+
 
 ## Acknowledgement
 This code is extended from the following repositories.
