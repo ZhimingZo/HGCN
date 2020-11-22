@@ -40,7 +40,7 @@ Results using Ground truth are reported.
 
 ## Quick start
 
-This repository is build upon Python v3.7 and Pytorch v1.3.1 on Ubuntu 18.04. NVIDIA GPUs are needed to train and test. See [`requirements.txt`](requirements.txt) for other dependencies. We recommend installing Python v2.7 from [Anaconda](https://www.anaconda.com/), and installing Pytorch (>= 1.3.1) following guide on the [official instructions](https://pytorch.org/) according to your specific CUDA version. Then you can install dependencies with the following commands.
+This repository is build upon Python v3.7 and Pytorch v1.3.1 on Ubuntu 18.04. NVIDIA GPUs are needed to train and test. See [`requirements.txt`](requirements.txt) for other dependencies. We recommend installing Python v3.7 from [Anaconda](https://www.anaconda.com/), and installing Pytorch (>= 1.3.1) following guide on the [official instructions](https://pytorch.org/) according to your specific CUDA version. Then you can install dependencies with the following commands.
 
 ```
 git clone git@github.com:ZhimingZou/HGCN.git
@@ -52,11 +52,11 @@ pip install -r requirements.txt
 You can find the instructions for setting up the Human3.6M and results of 2D detections in [`data/README.md`](data/README.md). The code for data preparation is borrowed from [VideoPose3D](https://github.com/facebookresearch/VideoPose3D).
 
 ### Evaluating our pretrained models
-The pretrained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1c7Iz6Tt7qbaw0c1snKgcGOD-JGSzuZ4X?usp=sharing). Put `checkpoint` in the project root directory.
+The pretrained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/13gBcCX6nQwzRN0jrhP5Fl7KwVa57-MCI). Put `checkpoint` in the project root directory.
 
 To evaluate HGCN, run:
 ```
-python main_gcn.py --evaluate checkpoint/pretrained/ckpt_semgcn.pth.tar
+python main_gcn.py --evaluate checkpoint/pretrained/ckpt_hgcn_best.pth.tar
 ```
 
 Note that the error is calculated in an **action-wise** manner.
@@ -87,5 +87,5 @@ This code is extended from the following repositories.
 - [3d-pose-baseline](https://github.com/una-dinosauria/3d-pose-baseline)
 - [3d_pose_baseline_pytorch](https://github.com/weigq/3d_pose_baseline_pytorch)
 - [VideoPose3D](https://github.com/facebookresearch/VideoPose3D)
-- [Semantic GCN] (https://github.com/garyzhao/SemGCN)
+- [Semantic GCN](https://github.com/garyzhao/SemGCN)
 We thank to the authors for releasing their codes. Please also consider citing their works.
