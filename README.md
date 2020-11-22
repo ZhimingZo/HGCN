@@ -50,7 +50,7 @@ pip install -r requirements.txt
 ```
 
 ### Dataset setup
-CPN 2D detections for Human3.6 M datasets are provided by VideoPose3D by Pavllo et al. [2], which can be downloaded by:
+CPN 2D detections for Human3.6 M datasets are provided by [VideoPose3D](https://github.com/facebookresearch/VideoPose3D) by Pavllo et al. [2], which can be downloaded by:
 
 ```
 cd data
