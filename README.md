@@ -114,4 +114,4 @@ This code is extended from the following repositories.
 - [VideoPose3D](https://github.com/facebookresearch/VideoPose3D)
 - [Semantic GCN](https://github.com/garyzhao/SemGCN)
 
-We thank to the authors for releasing their codes. Please also consider citing their works.
+We thank the authors for releasing their codes. Please also consider citing their works.
