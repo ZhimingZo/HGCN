@@ -34,7 +34,7 @@ def parse_args():
                         help='batch size in terms of predicted frames')
     parser.add_argument('--num_workers', default=8, type=int, metavar='N', help='num of workers for data loading')
     parser.add_argument('--num_layers', default=4, type=int, metavar='N', help='num of residual layers')
-    parser.add_argument('--hid_dim', default=128, type=int, metavar='N', help='num of hidden dimensions')
+    parser.add_argument('--hid_dim', default=96, type=int, metavar='N', help='num of hidden dimensions')
     parser.add_argument('--non_local', dest='non_local', action='store_true', help='if use non-local layers')
     parser.set_defaults(non_local=False)
     parser.add_argument('--dropout', default=0.0, type=float, help='dropout rate')
