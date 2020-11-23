@@ -35,8 +35,6 @@ def parse_args():
     parser.add_argument('--num_workers', default=8, type=int, metavar='N', help='num of workers for data loading')
     parser.add_argument('--num_layers', default=4, type=int, metavar='N', help='num of residual layers')
     parser.add_argument('--hid_dim', default=128, type=int, metavar='N', help='num of hidden dimensions')
-    parser.add_argument('--non_local', dest='non_local', action='store_true', help='if use non-local layers')
-    parser.set_defaults(non_local=False)
     parser.add_argument('--dropout', default=0.0, type=float, help='dropout rate')
 
     # Visualization
@@ -83,8 +81,7 @@ def main(args):
         from common.graph_utils import adj_mx_from_skeleton
         p_dropout = (None if args.dropout == 0.0 else args.dropout)
         adj = adj_mx_from_skeleton(dataset.skeleton())
-        model_pos = HGCN(adj, args.hid_dim, num_layers=args.num_layers, p_dropout=p_dropout,
-                           nodes_group=dataset.skeleton().joints_group() if args.non_local else None).to(device)
+        model_pos = HGCN(adj, args.hid_dim, num_layers=args.num_layers, p_dropout=p_dropout).to(device)
     else:
         raise KeyError('Invalid model architecture')
 
