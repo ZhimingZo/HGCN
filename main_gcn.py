@@ -45,7 +45,7 @@ def parse_args():
                         help='batch size in terms of predicted frames')
     parser.add_argument('-e', '--epochs', default=50, type=int, metavar='N', help='number of training epochs')
     parser.add_argument('--num_workers', default=8, type=int, metavar='N', help='num of workers for data loading')
-    parser.add_argument('--lr', default=5.0e-3, type=float, metavar='LR', help='initial learning rate')
+    parser.add_argument('--lr', default=5e-3, type=float, metavar='LR', help='initial learning rate')
     parser.add_argument('--lr_decay', type=int, default=100000, help='num of steps of learning rate decay')
     parser.add_argument('--lr_gamma', type=float, default=0.80, help='gamma of learning rate decay')
     parser.add_argument('--no_max', dest='max_norm', action='store_false', help='if use max_norm clip on grad')
