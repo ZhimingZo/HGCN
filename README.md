@@ -9,8 +9,6 @@ This repository holds the Pytorch implementation of [High-order Graph Convolutio
 }
 ```
 
-<p align="center"><img src="example.gif" width="70%" alt="" /></p>
-
 ## Introduction
 
 The proposed High-order Graph Convolutional Network (HGCN) is a graph convolutional network architecture that operates on regression tasks with graph-structured data. We evaluate our model for 3D human pose estimation on the [Human3.6M Dataset](http://vision.imar.ro/human3.6m/).
