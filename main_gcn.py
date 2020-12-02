@@ -1,5 +1,5 @@
 from __future__ import print_function, absolute_import, division
-  
+
 import os
 import time
 import datetime
@@ -45,11 +45,13 @@ def parse_args():
                         help='batch size in terms of predicted frames')
     parser.add_argument('-e', '--epochs', default=50, type=int, metavar='N', help='number of training epochs')
     parser.add_argument('--num_workers', default=8, type=int, metavar='N', help='num of workers for data loading')
-    parser.add_argument('--lr', default=5e-3, type=float, metavar='LR', help='initial learning rate')
+    parser.add_argument('--lr', default=1.0e-3, type=float, metavar='LR', help='initial learning rate')
     parser.add_argument('--lr_decay', type=int, default=100000, help='num of steps of learning rate decay')
     parser.add_argument('--lr_gamma', type=float, default=0.80, help='gamma of learning rate decay')
     parser.add_argument('--no_max', dest='max_norm', action='store_false', help='if use max_norm clip on grad')
     parser.set_defaults(max_norm=True)
+    parser.add_argument('--non_local', dest='non_local', action='store_true', help='if use non-local layers')
+    parser.set_defaults(non_local=False)
     parser.add_argument('--dropout', default=0.0, type=float, help='dropout rate')
 
     # Experimental
@@ -98,7 +100,8 @@ def main(args):
 
     p_dropout = (None if args.dropout == 0.0 else args.dropout)
     adj = adj_mx_from_skeleton(dataset.skeleton())
-    model_pos = HGCN(adj, args.hid_dim, num_layers=args.num_layers, p_dropout=p_dropout).to(device)
+    model_pos = HGCN(adj, args.hid_dim, num_layers=args.num_layers, p_dropout=p_dropout,
+                       nodes_group=dataset.skeleton().joints_group() if args.non_local else None).to(device)
     print("==> Total parameters: {:.2f}M".format(sum(p.numel() for p in model_pos.parameters()) / 1000000.0))
 
     criterion = nn.MSELoss(reduction='mean').to(device)
