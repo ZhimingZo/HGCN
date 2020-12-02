@@ -64,7 +64,7 @@ def render_animation(keypoints, poses, skeleton, fps, bitrate, azim, output, vie
     ax_in.get_xaxis().set_visible(False)
     ax_in.get_yaxis().set_visible(False)
     ax_in.set_axis_off()
-    ax_in.set_title('')
+    ax_in.set_title('input')
 
     ax_3d = []
     lines_3d = []
@@ -81,7 +81,7 @@ def render_animation(keypoints, poses, skeleton, fps, bitrate, azim, output, vie
         ax.set_yticklabels([])
         ax.set_zticklabels([])
         ax.dist = 7.5
-        ax.set_title('Input')  
+        ax.set_title(title)  
         ax_3d.append(ax)
         lines_3d.append([])
         trajectories.append(data[:, 0, [0, 1]])
